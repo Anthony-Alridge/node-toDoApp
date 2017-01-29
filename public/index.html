@@ -1,0 +1,75 @@
+
+<!doctype html>
+<html ng-app="toDoApp">
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Todo App</title>
+
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.css" />
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/css/cal.css">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.js"></script>
+    <script src="core.js"></script>
+
+
+</head>
+
+<body ng-controller="mainController">
+    <div class="container">
+      <style>
+      body {
+        margin-top: 10%;
+      }
+      </style>
+
+        <div class="jumbotron text-center">
+            <h1>It shall be done! <span class="label label-info">{{ todos.length }}</span></h1>
+        </div>
+
+        <div id="todo-list" class="row">
+            <div class="col-sm-4 col-sm-offset-4">
+
+                <div class="checkbox" ng-repeat="todo in todos">
+                    <label>
+                        <button type="button"
+                               class="btn bt-danger"
+                               style="background-color:red;color:white"
+                               ng-click="deleteTodo(todo._id)">
+                        Delete </button> {{ todo.text }} | {{todo.date | date : 'shortDate'}}
+                    </label>
+                </div>
+
+            </div>
+        </div>
+
+        <div id="todo-form" class="row">
+            <div class="col-sm-8 col-sm-offset-2 text-center">
+                <form>
+                    <div class="form-group">
+
+                        <input type="text" class="form-control input-lg text-center" placeholder="I've got so much programming to do!" ng-model="formData.text">
+                        <input type="date" name="date" placeholder="Enter Date" class="text-center form-control datepicker" ng-model="formData.date">
+                    </div>
+                    <script>$('input[name="date"]').daterangepicker({
+                      singleDatePicker: true,
+                      showDropdowns: true
+                    }); </script>
+
+
+                    <button type="submit" class="btn btn-primary btn-lg" ng-click="createTodo()">Add</button>
+                </form>
+            </div>
+        </div>
+  </div>
+
+
+
+
+</body>
+</html>
