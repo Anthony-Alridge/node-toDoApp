@@ -6,7 +6,7 @@ var bodyParser = require('body-parser');    // pull information from HTML POST (
 var methodOverride = require('method-override'); // simulate DELETE and PUT (express4)
 
     // configuration =================
-mongoose.connect('mongodb://Anthony:efgkpou@waffle.modulusmongo.net:27017/mOqir5ih');
+mongoose.connect('mongodb://#######:########@waffle.modulusmongo.net:27017/mOqir5ih');
 
 
 app.use(express.static(__dirname + '/public'));                 // set the static files location /public/img will be /img for users
